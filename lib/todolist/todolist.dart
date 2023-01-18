@@ -15,7 +15,10 @@ class ToDoList extends StatelessWidget {
     "Cardano",
     "Atom",
     "Doge",
-    "Band"
+    "Band",
+    "Luna",
+    "Zil",
+    "OP",
   ];
 
   @override
@@ -24,36 +27,53 @@ class ToDoList extends StatelessWidget {
       appBar: AppBar(
         title: Text("Crypto List"),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 20.h),
-        child: ListView.separated(
-          separatorBuilder: (context, index) => Divider(),
-          itemCount: cryptoNames.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20),
-              child: Card(
-                color: Color.fromARGB(255, 207, 215, 221),
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                        color: Theme.of(context).colorScheme.outline),
-                    borderRadius: const BorderRadius.all(Radius.circular(7))),
-                child: SizedBox(
-                  height: 60.h,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        cryptoNames[index],
-                        style: TextStyle(fontSize: 25.sp),
+      body: Column(
+        children: <Widget>[
+          // Container(
+          //   child: TextField(
+          //     // controller: controller,
+          //     decoration: InputDecoration(
+          //       prefixIcon: const Icon(Icons.search),
+          //       hintText: 'Search',
+          //       border: OutlineInputBorder(
+          //         borderRadius: BorderRadius.circular(9),
+          //       ),
+          //     ),
+          //     // onChanged: search,
+          //   ),
+          // ),
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => Divider(),
+              itemCount: cryptoNames.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 20, left: 20),
+                  child: Card(
+                    color: Color.fromARGB(255, 207, 215, 221),
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                            color: Theme.of(context).colorScheme.outline),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(7))),
+                    child: SizedBox(
+                      height: 60.h,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            cryptoNames[index],
+                            style: TextStyle(fontSize: 25.sp),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            );
-          },
-        ),
+                );
+              },
+            ),
+          )
+        ],
       ),
     );
   }

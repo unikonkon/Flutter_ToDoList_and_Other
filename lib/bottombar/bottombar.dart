@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_todolist/calculator/calculator.dart';
+import 'package:flutter_app_todolist/personal_data/personal_data.dart';
 import 'package:flutter_app_todolist/todolist/todolist.dart';
 
 class MyBottomBar extends StatefulWidget {
@@ -30,14 +32,10 @@ class _MyBottomBarState extends State<MyBottomBar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     ToDoList(),
-    Text(
-      'Business',
-      style: optionStyle,
+    MyCalculatorPage(
+      title: '',
     ),
-    Text(
-      'Busisdsdsness',
-      style: optionStyle,
-    ),
+    Personal(),
   ];
 
   void _onItemTapped(int index) {
@@ -63,7 +61,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.library_books_outlined),
             label: 'to do list',
           ),
           BottomNavigationBarItem(
@@ -71,7 +69,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
             label: 'เครื่องคิดเลข',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.lock),
+            icon: Icon(Icons.library_add_rounded),
             label: 'เก็บข้อมูล',
           ),
         ],

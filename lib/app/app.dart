@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_todolist/bottombar/bottombar.dart';
+import 'package:flutter_app_todolist/personal_data/bloc/personal_bloc.dart';
+import 'package:flutter_app_todolist/personal_data/data_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => PersonalBloc(),
+      child: const MyApp(),
+    );
+  }
 }
 
-class _AppState extends State<App> {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
